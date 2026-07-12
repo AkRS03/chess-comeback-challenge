@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chess Comeback Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chessboard CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/chessboardjs@1.0.0/www/css/chessboard-1.0.0.min.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Progress -->
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Landing -->
+    <!-- ========================= -->
+
+    <section class="screen active" id="landing">
+
+        <h1>♟ The Chess Comeback Challenge</h1>
+
+        <p class="subtitle">
+            Think you've forgotten chess?
+            <br><br>
+            Let's find out.
+        </p>
+
+        <div class="infoBox">
+
+            <div>✔ 3 Chess Puzzles</div>
+            <div>✔ 3 Minutes</div>
+            <div>✔ Discover Your Chess Personality</div>
+
+        </div>
+
+        <button onclick="nextScreen('puzzle1')">
+            Start Challenge
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- Puzzle 1 -->
+    <!-- ========================= -->
+
+    <section class="screen" id="puzzle1">
+
+        <h2>Level 1</h2>
+
+        <p>Find the best move.</p>
+
+        <img src="assets/Puzzle1.jpeg" class="puzzleImage" alt="Puzzle 1">
+
+        <div class="options">
+
+            <button onclick="answerPuzzle(1,true)">
+                Qg7#
+            </button>
+
+            <button onclick="answerPuzzle(1,false)">
+                Rd3
+            </button>
+
+            <button onclick="answerPuzzle(1,false)">
+                Qf6
+            </button>
+
+            <button onclick="answerPuzzle(1,false)">
+                Nf6
+            </button>
+
+        </div>
+
+        <p id="result1"></p>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- Questions 1 -->
+    <!-- ========================= -->
+
+    <section class="screen" id="questions1">
+
+        <h2>Tell us about your chess journey</h2>
+
+        <label>
+            Highest Online Rating
+        </label>
+
+        <select id="rating">
+
+            <option value="">Select</option>
+
+            <option>Never Played</option>
+            <option>Below 800</option>
+            <option>800-1200</option>
+            <option>1200-1600</option>
+            <option>1600-2000</option>
+            <option>2000+</option>
+
+        </select>
+
+
+        <label>
+            When did you last play?
+        </label>
+
+        <select id="lastPlayed">
+
+            <option value="">Select</option>
+
+            <option>Today</option>
+            <option>This Week</option>
+            <option>This Month</option>
+            <option>This Year</option>
+            <option>More than a Year Ago</option>
+
+        </select>
+
+        <button onclick="nextScreen('puzzle2')">
+            Continue
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- Puzzle 2 -->
+    <!-- ========================= -->
+
+    <section class="screen" id="puzzle2">
+
+        <h2>Level 2</h2>
+
+        <p>Another tactical shot.</p>
+
+        <img src="assets/Puzzle2.png" class="puzzleImage" alt="Puzzle 2">
+
+
+        <div class="options">
+
+            <button onclick="answerPuzzle(2,false)">
+                Nb6
+            </button>
+
+            <button onclick="answerPuzzle(2,true)">
+                Ne5+
+            </button>
+
+            <button onclick="answerPuzzle(2,false)">
+                Kg2
+            </button>
+
+            <button onclick="answerPuzzle(2,false)">
+                Kf1
+            </button>
+
+        </div>
+
+        <p id="result2"></p>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- Questions 2 -->
+    <!-- ========================= -->
+
+    <section class="screen" id="questions2">
+
+        <h2>Your Chess Habits</h2>
+
+        <label>
+            Why did you stop playing?
+        </label>
+
+        <select id="quitReason">
+
+            <option>Studies</option>
+            <option>Work</option>
+            <option>Rating Frustration</option>
+            <option>No Friends to Play</option>
+            <option>Lost Interest</option>
+            <option>Other</option>
+
+        </select>
+
+
+        <label>
+            Favourite Chess Creator
+        </label>
+
+        <select id="creator">
+
+            <option>ChessBase India</option>
+            <option>GothamChess</option>
+            <option>Hikaru</option>
+            <option>Samay Raina</option>
+            <option>Daniel Naroditsky</option>
+            <option>Agadmator</option>
+            <option>Other</option>
+
+        </select>
+
+        <button onclick="nextScreen('puzzle3')">
+
+            Continue
+
+        </button>
+
+    </section>
+
+
+
+
+    <!-- ========================= -->
+    <!-- Puzzle 3 -->
+    <!-- ========================= -->
+
+    <section class="screen" id="puzzle3">
+
+        <h2>Final Level</h2>
+
+        <p>
+            One last puzzle.
+        </p>
+
+        <img src="assets/Puzzle3.jpeg" class="puzzleImage" alt="Puzzle 3">
+
+        <div class="options">
+
+            <button onclick="answerPuzzle(3,false)">
+                0-0
+            </button>
+
+            <button onclick="answerPuzzle(3,false)">
+                d3
+            </button>
+
+            <button onclick="answerPuzzle(3,true)">
+                Nxe5
+            </button>
+
+            <button onclick="answerPuzzle(3,false)">
+                Qe2
+            </button>
+
+        </div>
+
+        <button class="hintButton"
+                onclick="showHint()">
+
+            Need a Hint?
+
+        </button>
+
+        <p id="hint"></p>
+
+        <p id="result3"></p>
+
+    </section>
+
+
+
+
+    <!-- ========================= -->
+    <!-- Final Questions -->
+    <!-- ========================= -->
+
+    <section class="screen" id="finalQuestions">
+
+        <h2>One Last Question</h2>
+
+        <label>
+
+            What would bring you back to chess?
+
+        </label>
+
+        <select id="returnReason">
+
+            <option>Friends</option>
+            <option>Tournaments</option>
+            <option>Daily Puzzles</option>
+            <option>Structured Learning</option>
+            <option>More Free Time</option>
+
+        </select>
+
+        <button onclick="finishChallenge()">
+
+            Reveal My Chess Personality
+
+        </button>
+
+    </section>
+
+
+
+
+    <!-- ========================= -->
+    <!-- Result -->
+    <!-- ========================= -->
+
+    <section class="screen" id="result">
+
+        <h1>🏆 You Still Got It!</h1>
+
+        <h2 id="personality"></h2>
+
+        <p id="summary"></p>
+
+        <div class="xpBox">
+
+            XP Earned
+
+            <h2 id="xp"></h2>
+
+        </div>
+
+        <button id="shareButton">
+
+            Share on Instagram
+
+        </button>
+
+        <button id="submitButton">
+
+            Submit
+
+        </button>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- Chess.js -->
+
+<!-- Chessboard.js -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
